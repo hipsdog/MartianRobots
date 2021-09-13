@@ -2,6 +2,8 @@
 
 .NET Core MVC web application that recieves a martian robots input and returns the output.
 
+The application is deployed on Azure: [https://martialrobots.azurewebsites.net/](https://martialrobots.azurewebsites.net/)
+
 ## Components
 - [MVC application](https://github.com/hipsdog/MartialRobots/tree/master/MartialRobots) - MVC .Net Core Web application
 - [Martial robots engine](https://github.com/hipsdog/MartialRobots/tree/master/MartialRobots.Engine) - Input Parser and execution logic
