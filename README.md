@@ -7,7 +7,7 @@
 - [Martial robots engine](https://github.com/hipsdog/MartialRobots/tree/master/MartialRobots.Engine) - Input Parser and execution logic
 - [Application domain](https://github.com/hipsdog/MartialRobots/tree/master/MartialRobots.Domain) - Domain entities, repository contracts/interfaces
 - [Application infrastructure](https://github.com/hipsdog/MartialRobots/tree/master/MartialRobots.Infrastructure) - ORMs, Data access, repository implementation
-- [Tests](https://github.com/hipsdog/MartialRobots/tree/master/MartialRobots) - xUnit test sample
+- [Tests](https://github.com/hipsdog/MartialRobots/tree/master/MartialRobots.Test) - xUnit test sample
 
 ## Usage
 CLI:
