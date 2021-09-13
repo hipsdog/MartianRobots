@@ -1,0 +1,40 @@
+﻿@model IEnumerable<MartialRobots.Models.MartialWorldHistory>
+
+@{
+    ViewData["Title"] = "History";
+}
+
+<h1>History</h1>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.WorldInput)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.WorldResult)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ExecutionDate)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.WorldInput)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.WorldResult)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ExecutionDate)
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

@@ -1,0 +1,42 @@
+﻿@model MartialRobots.Models.MartialModel
+
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+    <h1>Martian Robots</h1>
+    <hr />
+</div>
+
+<div class="row">
+    <div class="col-md-6">
+        <form asp-action="Index">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="WorldInput" class="control-label"></label>
+                <textarea asp-for="WorldInput" class="form-control" rows="10"></textarea>
+                <span asp-validation-for="WorldInput" class="text-danger" rows="5" cols="40"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Calculate" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-6">
+        @if (Model != null && Model.WorldResult != null && Model.WorldResult.Any())
+        {
+            @foreach (var robot in Model.WorldResult)
+            {
+                <p> @robot</p>
+            }
+        }
+    </div>
+</div>
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
