@@ -27,15 +27,16 @@ namespace MartialRobots.Infrastructure.Context
     {
         ApplicationDbContext IDesignTimeDbContextFactory<ApplicationDbContext>.CreateDbContext(string[] args)
         {
-            var path = Directory.GetParent(Directory.GetCurrentDirectory().ToString() + "\\MartialRobots");
-
+            var parentPath = Directory.GetParent(Directory.GetCurrentDirectory().ToString()).ToString(); 
+            var newPath = Path.Combine(parentPath, "MartialRobots");
             IConfigurationRoot configuration = new ConfigurationBuilder()
-                .SetBasePath(path.FullName)
+                .SetBasePath(newPath.ToString())
                 .AddJsonFile("appsettings.json")
                 .Build();
 
             var builder = new DbContextOptionsBuilder<ApplicationDbContext>();
-            var connectionString = configuration.GetConnectionString("DefaultConnection");
+
+            var connectionString = configuration.GetConnectionString("ProdConnection");
 
             builder.UseSqlServer(connectionString);
 

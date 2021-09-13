@@ -4,7 +4,6 @@ using MartialRobots.Infrastructure.Context;
 using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace MartialRobots.Infrastructure.Repositories
