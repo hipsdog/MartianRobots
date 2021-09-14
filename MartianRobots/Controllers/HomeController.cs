@@ -15,7 +15,7 @@ using MartianRobots.Domain.DomainEntities;
 namespace MartianRobots.Controllers
 {
     /// <summary>
-    /// Default controller that can execute martial worlds and show a list of historical executions
+    /// Default controller that can execute martian worlds and show a list of historical executions
     /// </summary>
     public class HomeController : Controller
     {
@@ -55,18 +55,18 @@ namespace MartianRobots.Controllers
             {
                 if (ModelState.IsValid)
                 {
-                    MartianWorld martialWorld = MartianWorldParser.Parse(model.WorldInput);
+                    MartianWorld martianWorld = MartianWorldParser.Parse(model.WorldInput);
 
-                    if (martialWorld.ParsingErrors.Any())
+                    if (martianWorld.ParsingErrors.Any())
                     {
-                        foreach (var error in martialWorld.ParsingErrors)
+                        foreach (var error in martianWorld.ParsingErrors)
                         {
                             ModelState.AddModelError(nameof(model.WorldInput), error);
                         }
                     }
                     else
                     {
-                        model.WorldResult = MartianWorldEngine.Execute(martialWorld);
+                        model.WorldResult = MartianWorldEngine.Execute(martianWorld);
 
                         StoreExecution(model);
 

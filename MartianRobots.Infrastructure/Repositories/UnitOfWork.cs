@@ -16,11 +16,11 @@ namespace MartianRobots.Infrastructure.Repositories
         /// UnitOfWork constructor
         /// </summary>
         /// <param name="dbContext"></param>
-        /// <param name="martialWorld"></param>
-        public UnitOfWork(ApplicationDbContext dbContext, IMartianWorldRepository martialWorld)
+        /// <param name="martianWorld"></param>
+        public UnitOfWork(ApplicationDbContext dbContext, IMartianWorldRepository martianWorld)
         {
             this._context = dbContext;
-            this.MartianWorlds = martialWorld;
+            this.MartianWorlds = martianWorld;
         }
 
         /// <inheritdoc cref="IUnitOfWork" />

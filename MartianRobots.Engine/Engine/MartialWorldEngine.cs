@@ -5,46 +5,46 @@ using System.Collections.Generic;
 namespace MartianRobots.Engine.Engine
 {
     /// <summary>
-    /// Contains the functionalities to transform the received martial world to the final state.
+    /// Contains the functionalities to transform the received martian world to the final state.
     /// </summary>
     public static class MartianWorldEngine
     {
         /// <summary>
-        /// Execute the instructions for all the robot of the given martial world
+        /// Execute the instructions for all the robot of the given martian world
         /// </summary>
-        /// <param name="martialWorld">MartianWorld object</param>
+        /// <param name="martianWorld">MartianWorld object</param>
         /// <returns>List of all robots last positions</returns>
-        public static List<string> Execute(MartianWorld martialWorld)
+        public static List<string> Execute(MartianWorld martianWorld)
         {
-            foreach (Robot robot in martialWorld.Robots)
+            foreach (Robot robot in martianWorld.Robots)
             {
                 foreach (var instruction in robot.RobotInstruction.Instructions)
                 {
 
                     robot.FinalPosition = robot.RobotPosition.Clone();
 
-                    if (IsRobotLostBreak(martialWorld, robot)) break;
+                    if (IsRobotLostBreak(martianWorld, robot)) break;
 
 
-                    if (!martialWorld.LastSeenPositions.Contains(robot.RobotPosition) || instruction != InstructionHelper.FORWARD)
+                    if (!martianWorld.LastSeenPositions.Contains(robot.RobotPosition) || instruction != InstructionHelper.FORWARD)
                     {
                         UpdateRobotPosition(robot, instruction);
                     }
 
-                    if (IsRobotLostBreak(martialWorld, robot)) break;
+                    if (IsRobotLostBreak(martianWorld, robot)) break;
                 }
             }
 
-            return GetResultString(martialWorld);
+            return GetResultString(martianWorld);
         }
 
-        private static List<string> GetResultString(MartianWorld martialWorld)
+        private static List<string> GetResultString(MartianWorld martianWorld)
         {
             List<string> result = new();
 
-            foreach (var robot in martialWorld.Robots)
+            foreach (var robot in martianWorld.Robots)
             {
-                result.Add(robot.RobotPosition.X.ToString() + " " 
+                result.Add(robot.RobotPosition.X.ToString() + " "
                     + robot.RobotPosition.Y.ToString() + " "
                     + robot.RobotPosition.Orientation.ToString()
                     + (robot.IsLost ? " LOST" : ""));
@@ -53,11 +53,11 @@ namespace MartianRobots.Engine.Engine
             return result;
         }
 
-        private static bool IsRobotLostBreak(MartianWorld martialWorld, Robot robot)
+        private static bool IsRobotLostBreak(MartianWorld martianWorld, Robot robot)
         {
-            if (robot.IsLost || IsRobotLost(robot, martialWorld.WorldSize))
+            if (robot.IsLost || IsRobotLost(robot, martianWorld.WorldSize))
             {
-                martialWorld.LastSeenPositions.Add(robot.FinalPosition);
+                martianWorld.LastSeenPositions.Add(robot.FinalPosition);
                 robot.RobotPosition = robot.FinalPosition;
                 robot.IsLost = true;
                 return true;

@@ -8,7 +8,7 @@ namespace MartianRobots.Domain.Interfaces
     public interface IUnitOfWork : IDisposable
     {
         /// <summary>
-        /// interface of the martial world repository
+        /// interface of the martian world repository
         /// </summary>
         IMartianWorldRepository MartianWorlds { get; }
 

@@ -5,7 +5,7 @@ using System.IO;
 namespace MartianRobots.Engine.Parser
 {
     /// <summary>
-    /// Static class that parses the input string and creates the martial world object
+    /// Static class that parses the input string and creates the martian world object
     /// </summary>
     public static class MartianWorldParser
     {
@@ -16,7 +16,7 @@ namespace MartianRobots.Engine.Parser
         /// <returns>The MartianWorld object.</returns>
         public static MartianWorld Parse(string input)
         {
-            MartianWorld martialWorld = new();
+            MartianWorld martianWorld = new();
 
             using (StringReader reader = new(input))
             {
@@ -33,15 +33,15 @@ namespace MartianRobots.Engine.Parser
                     {
                         if (line.Length > 100)
                         {
-                            martialWorld.ParsingErrors.Add($"{ErrorHelper.LENGTH_LIMIT_ERROR} : {line}");
+                            martianWorld.ParsingErrors.Add($"{ErrorHelper.LENGTH_LIMIT_ERROR} : {line}");
                             break;
                         }
                         if (count == 0)
                         {
-                            martialWorld.WorldSize = GetWorldSizeFromLine(line);
-                            if (martialWorld.WorldSize == null)
+                            martianWorld.WorldSize = GetWorldSizeFromLine(line);
+                            if (martianWorld.WorldSize == null)
                             {
-                                martialWorld.ParsingErrors.Add($"{ErrorHelper.COORDINATES_ERROR} : {line}");
+                                martianWorld.ParsingErrors.Add($"{ErrorHelper.COORDINATES_ERROR} : {line}");
                                 break;
                             }
                         }
@@ -52,7 +52,7 @@ namespace MartianRobots.Engine.Parser
                                 robotPosition = GetRobotLocation(line);
                                 if (robotPosition == null)
                                 {
-                                    martialWorld.ParsingErrors.Add($"{ErrorHelper.ROBOT_POSITION_ERROR} : {line}");
+                                    martianWorld.ParsingErrors.Add($"{ErrorHelper.ROBOT_POSITION_ERROR} : {line}");
                                     break;
                                 }
                             }
@@ -61,11 +61,11 @@ namespace MartianRobots.Engine.Parser
                                 RobotInstruction ronotInstruction = GetRobotInstructions(line);
                                 if (ronotInstruction != null)
                                 {
-                                    martialWorld.Robots.Add(new Robot(robotPosition, ronotInstruction));
+                                    martianWorld.Robots.Add(new Robot(robotPosition, ronotInstruction));
                                 }
                                 else
                                 {
-                                    martialWorld.ParsingErrors.Add($"{ErrorHelper.ROBOT_INSTRUCTION_ERROR} : {line}");
+                                    martianWorld.ParsingErrors.Add($"{ErrorHelper.ROBOT_INSTRUCTION_ERROR} : {line}");
                                     break;
                                 }
                             }
@@ -75,7 +75,7 @@ namespace MartianRobots.Engine.Parser
                 }
             }
 
-            return martialWorld;
+            return martianWorld;
         }
 
 

@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 namespace MartianRobots.Domain.Interfaces
 {
     /// <summary>
-    /// Interface for the martial world operations
+    /// Interface for the martian world operations
     /// </summary>
     public interface IMartianWorldRepository : IGenericRepository<MartianWorldEntity>
     {

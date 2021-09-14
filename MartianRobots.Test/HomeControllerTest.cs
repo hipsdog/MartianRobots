@@ -27,8 +27,8 @@ namespace MartianRobots.Test
                             0 3 W
                             LLFFFRFLFL";
 
-            MartianModel martialModel = new();
-            martialModel.WorldInput = input;
+            MartianModel martianModel = new();
+            martianModel.WorldInput = input;
 
             _unitOfWork.Setup(x => x.MartianWorlds.Add(It.IsAny<MartianWorldEntity>()))
                 .Returns(Task.FromResult(default(object)));
@@ -38,7 +38,7 @@ namespace MartianRobots.Test
             var controller = new HomeController(_loggerMock.Object, _unitOfWork.Object);
 
             //Act
-            var result = controller.Index(martialModel);
+            var result = controller.Index(martianModel);
 
             //Assert
             var viewResult = Assert.IsType<ViewResult>(result);
