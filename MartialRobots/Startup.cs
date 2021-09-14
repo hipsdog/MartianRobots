@@ -25,7 +25,7 @@ namespace MartialRobots
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews();
-            services.AddRepository(Configuration.GetConnectionString("ProdConnection"));
+            services.AddRepository(Configuration.GetConnectionString("DevConnection"));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

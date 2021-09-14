@@ -27,7 +27,7 @@ namespace MartialRobots.Infrastructure.Context
     {
         ApplicationDbContext IDesignTimeDbContextFactory<ApplicationDbContext>.CreateDbContext(string[] args)
         {
-            var parentPath = Directory.GetParent(Directory.GetCurrentDirectory().ToString()).ToString(); 
+            var parentPath = Directory.GetParent(Directory.GetCurrentDirectory().ToString()).ToString();
             var newPath = Path.Combine(parentPath, "MartialRobots");
             IConfigurationRoot configuration = new ConfigurationBuilder()
                 .SetBasePath(newPath.ToString())
@@ -36,7 +36,7 @@ namespace MartialRobots.Infrastructure.Context
 
             var builder = new DbContextOptionsBuilder<ApplicationDbContext>();
 
-            var connectionString = configuration.GetConnectionString("ProdConnection");
+            var connectionString = configuration.GetConnectionString("DevConnection");
 
             builder.UseSqlServer(connectionString);
 
