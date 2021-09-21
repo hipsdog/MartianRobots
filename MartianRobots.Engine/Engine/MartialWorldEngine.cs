@@ -140,7 +140,8 @@ namespace MartianRobots.Engine.Engine
 
         private static bool IsRobotLost(Robot robot, WorldSize worldSize)
         {
-            if (robot.RobotPosition.X > worldSize.X || robot.RobotPosition.Y > worldSize.Y)
+            if (robot.RobotPosition.X > worldSize.X || robot.RobotPosition.Y > worldSize.Y
+                || robot.RobotPosition.X < 0 || robot.RobotPosition.Y < 0)
             {
                 return true;
             }
